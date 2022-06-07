@@ -6,7 +6,7 @@ import { ItemComponent } from './pages/item/item.component';
 
 const routes: Routes = [
   { 
-    path: '', 
+    path: 'home', 
     component: GalleryComponent 
   },
   { 
@@ -20,7 +20,7 @@ const routes: Routes = [
   { 
     path: '**', 
     pathMatch: 'full',
-    redirectTo: '' 
+    redirectTo: 'home' 
   },
 ];
 

@@ -29,7 +29,7 @@
 
 		<div *ngIf="!galleriaService.cargando" class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4">
 
-			<a *ngFor="let galleria of galleriaService.galleria" routerLink="/item" class="animate__animated animate__fadeIn rk-item ae-masonry__item">
+			<a *ngFor="let galleria of galleriaService.galleria" [routerLink]="['/item', galleria.cod ]" class="animate__animated animate__fadeIn rk-item ae-masonry__item">
 				<img src="assets/galleria/{{ galleria.url }}.jpg" alt="" />
 				
 				<div class="item-meta">

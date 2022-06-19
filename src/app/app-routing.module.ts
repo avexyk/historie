@@ -14,7 +14,7 @@ const routes: Routes = [
     component: AboutComponent 
   },
   { 
-    path: 'item', 
+    path: 'item/:id', 
     component: ItemComponent 
   },
   { 

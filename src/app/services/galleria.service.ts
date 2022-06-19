@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { galleriaPagina } from '../interfaces/galleria-pagina.interface';
+import { itemGalleriaPagina } from '../interfaces/item-galleria.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,10 @@ export class GalleriaService {
 
           console.log( this.galleria );
         });
+  }
+
+  public getGalleria(id: string) {
+    return this.http.get<itemGalleriaPagina>(`https://historie-c87e5-default-rtdb.firebaseio.com/galleria/${ id }.json`);
   }
 
 }

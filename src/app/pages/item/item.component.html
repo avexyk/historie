@@ -1,6 +1,6 @@
-<section class="ae-container-fluid ae-container-fluid--full" *ngIf="itemGalleria">
+<section class="ae-container-fluid ae-container-fluid--full" *ngIf="idRuta">
 
-    <header [ngStyle]="{ 'background-image': 'url(assets/galleria/'+ id +'/main.jpg)' }" class="rk-portfolio-cover  item-inside-1">
+    <header [ngStyle]="{ 'background-image': 'url(assets/galleria/'+ idRuta +'/main.jpg)' }" class="rk-portfolio-cover  item-inside-1">
         <div class="item-inside__meta">
             <h1 class="ae-u-bolder rk-portfolio-title ">{{ itemGalleria.producto }}</h1>
             <p class="ae-theta rk-portfolio-category ">{{ itemGalleria.categoria }}</p>
@@ -36,12 +36,12 @@
             </div>
 
             <div class="ae-grid__item item-lg-6 item-lg--offset-1">
-            <img src="assets/galleria/{{ id }}/pic-1.jpg" alt="Urku Portfolio"></div>
+            <img src="assets/galleria/{{ idRuta }}/pic-1.jpg" alt="Urku Portfolio"></div>
         </div>
 
         <div class="ae-grid ae-grid--collapse">
             <div class="ae-grid__item item-lg-8">
-                <img src="assets/galleria/{{ id }}/pic-2.jpg" alt="Urku Portfolio">
+                <img src="assets/galleria/{{ idRuta }}/pic-2.jpg" alt="Urku Portfolio">
             </div>
 
             <div class="ae-grid__item item-lg-3 item-lg--offset-1 au-lg-ptp-1">

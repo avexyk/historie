@@ -11,7 +11,7 @@ import { itemGalleriaPagina } from '../../interfaces/item-galleria.interface';
 export class ItemComponent implements OnInit {
 
   itemGalleria: itemGalleriaPagina = {} as itemGalleriaPagina;
-  id:string = '';
+  idRuta:string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -24,7 +24,7 @@ export class ItemComponent implements OnInit {
         .subscribe( parametros => {
           this.galleriaService.getGalleria( parametros['id'] )
               .subscribe( galleria => {
-                this.id = parametros['id'];
+                this.idRuta = parametros['id'];
                 this.itemGalleria = galleria;
               });
         });

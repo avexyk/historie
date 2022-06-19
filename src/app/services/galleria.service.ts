@@ -19,7 +19,9 @@ export class GalleriaService {
   }
 
   private cargarGalleria() {
-    this.http.get<galleriaPagina[]>('https://historie-c87e5-default-rtdb.firebaseio.com/galleria_idx.json')
+    // promesas
+    return new Promise<void>(( resolve, reject ) => {
+      this.http.get<galleriaPagina[]>('https://historie-c87e5-default-rtdb.firebaseio.com/galleria_idx.json')
         .subscribe( ( resp ) => {
           this.galleria = resp;
           
@@ -27,8 +29,9 @@ export class GalleriaService {
             this.cargando = false;
           }, 1000);
 
-          // console.log( this.galleria );
+          resolve();
         });
+    });
   }
 
   public getGalleria(id: string) {
@@ -36,10 +39,38 @@ export class GalleriaService {
   }
 
   buscarGalleriaItem( termino: string ) {
-    this.galleriaFiltrada = this.galleria.filter( galleria => {
-      return true;
+
+    if ( this.galleria.length === 0 ) {
+      // Si no esta cargado se carga
+      this.cargarGalleria().then( () => {
+        // Despues de obtener los elementos filtramos
+        this.filtrarGalleria( termino );
+      })
+    } else {
+      // aplica filtro
+      this.filtrarGalleria( termino );
+    }
+
+    // this.galleriaFiltrada = this.galleria.filter( galleria => {
+    //   return true;
+    // });
+    // console.log( this.galleriaFiltrada );
+  }
+
+  filtrarGalleria( termino: string ) {
+
+    this.galleriaFiltrada = [];
+
+    termino = termino.toLocaleLowerCase();
+
+    this.galleria.forEach( gall => {
+
+      const tituloLower = gall.titulo.toLocaleLowerCase();
+
+      if ( gall.categoria.indexOf( termino ) >= 0 || tituloLower.indexOf( termino ) >= 0 ) {
+        this.galleriaFiltrada.push( gall ); 
+      }
     });
-    console.log( this.galleriaFiltrada );
   }
 
 }

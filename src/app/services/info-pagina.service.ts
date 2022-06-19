@@ -10,7 +10,7 @@ export class InfoPaginaService {
 
   info: any = [];
   cargada: boolean = false;
-  equipo: any = [];
+  equipo: equipoPagina[] = [];
 
   constructor(
     private http: HttpClient
@@ -50,8 +50,8 @@ export class InfoPaginaService {
    }
 
    private cargarEquipo() {
-      this.http.get('https://historie-c87e5-default-rtdb.firebaseio.com/equipo.json')
-          .subscribe( (resp: equipoPagina) => {
+      this.http.get<equipoPagina[]>('https://historie-c87e5-default-rtdb.firebaseio.com/equipo.json')
+          .subscribe( resp => {
             this.cargada = true,
             this.equipo = resp;
             

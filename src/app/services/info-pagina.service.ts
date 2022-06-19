@@ -8,9 +8,9 @@ import { infoPagina } from '../interfaces/info-pagina.interface';
 })
 export class InfoPaginaService {
 
-  info: infoPagina = {};
+  info: any = [];
   cargada: boolean = false;
-  equipo: any = {};
+  equipo: any = [];
 
   constructor(
     private http: HttpClient
@@ -40,7 +40,6 @@ export class InfoPaginaService {
    }
 
    private cargarInfo() {
-    //  Leer JSON
      this.http.get('assets/data/data-pagina.json')
          .subscribe( (resp: infoPagina) => {
            this.cargada = true,

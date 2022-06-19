@@ -45,7 +45,7 @@ export class InfoPaginaService {
            this.cargada = true,
            this.info = resp;
 
-           console.log( this.info );
+          //  console.log( this.info );
          });
    }
 
@@ -55,7 +55,7 @@ export class InfoPaginaService {
             this.cargada = true,
             this.equipo = resp;
             
-            console.log( this.equipo );
+            // console.log( this.equipo );
           });
    }
 }

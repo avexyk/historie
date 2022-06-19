@@ -10,6 +10,7 @@ export class GalleriaService {
 
   cargando:boolean = true;
   galleria: galleriaPagina[] = [];
+  galleriaFiltrada: galleriaPagina[] = [];
 
   constructor(
     private http: HttpClient
@@ -26,12 +27,19 @@ export class GalleriaService {
             this.cargando = false;
           }, 1000);
 
-          console.log( this.galleria );
+          // console.log( this.galleria );
         });
   }
 
   public getGalleria(id: string) {
     return this.http.get<itemGalleriaPagina>(`https://historie-c87e5-default-rtdb.firebaseio.com/galleria/${ id }.json`);
+  }
+
+  buscarGalleriaItem( termino: string ) {
+    this.galleriaFiltrada = this.galleria.filter( galleria => {
+      return true;
+    });
+    console.log( this.galleriaFiltrada );
   }
 
 }

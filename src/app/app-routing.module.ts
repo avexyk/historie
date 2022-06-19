@@ -3,25 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './pages/about/about.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ItemComponent } from './pages/item/item.component';
+import { SearchComponent } from './pages/search/search.component';
 
 const routes: Routes = [
-  { 
-    path: 'home', 
-    component: GalleryComponent 
-  },
-  { 
-    path: 'about', 
-    component: AboutComponent 
-  },
-  { 
-    path: 'item/:id', 
-    component: ItemComponent 
-  },
-  { 
-    path: '**', 
-    pathMatch: 'full',
-    redirectTo: 'home' 
-  },
+  { path: 'home', component: GalleryComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'item/:id', component: ItemComponent },
+  { path: 'search/:termino', component: SearchComponent },
+  { path: '**', pathMatch: 'full',redirectTo: 'home' },
 ];
 
 @NgModule({
